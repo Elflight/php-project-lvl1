@@ -6,7 +6,7 @@
             "email": "elflight@yandex.ru"
         }
     ],
-    "bin" [
+    "bin": [
 	"bin/brain-games"
     ]
     "require": {}
