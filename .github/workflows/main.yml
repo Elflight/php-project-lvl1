@@ -17,6 +17,10 @@ jobs:
         # https://github.com/actions/checkout
       - uses: actions/checkout@v2
         # Step's name
+      - name: Install
+        # Install project
+        run: make install
+        # Step's name
       - name: Run linter
         # Run Linter
         run: make lint
