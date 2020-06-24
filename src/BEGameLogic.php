@@ -7,13 +7,13 @@ use function cli\prompt;
 
 function run()
 {
-    $color_red_start = "\033[0;31m";
-    $color_end = "\033[0m";
+    $c_start = "\033[0;31m";
+    $c_end = "\033[0m";
     $min_number = 1;
     $max_number = 100;
 
     line('Welcome to the Brain Games!');
-    line("Answer {$color_red_start}\"yes\"{$color_end} if the number is even, otherwise answer {$color_red_start}\"no\"{$color_end}.");
+    line("Answer {$c_start}\"yes\"{$c_end} if the number is even, otherwise answer {$c_start}\"no\"{$c_end}.");
     line();
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
