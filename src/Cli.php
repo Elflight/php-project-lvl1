@@ -12,4 +12,3 @@ function run()
     line("Hello, %s!", $name);
 }
 
-//test comment
