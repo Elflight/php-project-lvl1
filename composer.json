@@ -7,16 +7,18 @@
         }
     ],
     "bin": [
-    	"bin/brain-games",
-        "bin/brain-even"
+        "bin/brain-even",
+        "bin/brain-calc"
     ],
     "require": {
         "wp-cli/php-cli-tools": "^0.11.11"
     },
     "autoload": {
     	"files": [
-    	    "src/Cli.php",
-            "src/BEGameLogic.php"
+    	    "src/MyCli.php",
+            "src/gameInterface.php",
+            "src/games/calculator.php",
+            "src/games/even.php"
     	]
     },
     "require-dev": {
