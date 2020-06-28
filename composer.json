@@ -18,7 +18,8 @@
     	    "src/MyCli.php",
             "src/gameInterface.php",
             "src/games/calculator.php",
-            "src/games/even.php"
+            "src/games/even.php",
+            "src/games/gcd.php"
     	]
     },
     "require-dev": {
