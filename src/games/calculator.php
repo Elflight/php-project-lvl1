@@ -5,7 +5,7 @@ namespace Brain\Even\Games\Calculator;
 use function cli\line;
 use function cli\prompt;
 
-function calculatorGameRound()
+function gameRound()
 {
     $min_number = 1;
     $max_number = 100;

@@ -6,6 +6,7 @@ use Brain\Even\Games\Calculator;
 use Brain\Even\Games\Even;
 use Brain\Even\Games\Gcd;
 use Brain\Even\Games\Progression;
+use Brain\Even\Games\Prime;
 
 use function Brain\Games\MyCli\{showHello, getName, showFinish, showSuccess, showError};
 
@@ -15,7 +16,8 @@ function run($gameName)
         'Even' => 'Answer "yes" if the number is even, otherwise answer "no".',
         'Calculator' => 'What is the result of the expression?',
         'Gcd' => 'Find the greatest common divisor of given numbers.',
-        'Progression' => 'What number is missing in the progression?'
+        'Progression' => 'What number is missing in the progression?',
+        'Prime' => 'Answer "yes" if given number is prime. Otherwise answer "no".'
     ];
 
     showHello($arRules[$gameName]);
@@ -26,13 +28,15 @@ function run($gameName)
         //вот с этой частью у меня вопросы, пока сделал костыльно'
         // $arGameRoundResult = call_user_func($gameName.'\GameRound');
         if ($gameName == 'Calculator') {
-            $arGameRoundResult = Calculator\calculatorGameRound();
+            $arGameRoundResult = Calculator\gameRound();
         } elseif ($gameName == 'Even') {
-            $arGameRoundResult = Even\evenGameRound();
+            $arGameRoundResult = Even\gameRound();
         } elseif ($gameName == 'Gcd') {
-            $arGameRoundResult = Gcd\gcdGameRound();
+            $arGameRoundResult = Gcd\gameRound();
         } elseif ($gameName == 'Progression') {
-            $arGameRoundResult = Progression\progressionGameRound();
+            $arGameRoundResult = Progression\gameRound();
+        } elseif ($gameName == 'Prime') {
+            $arGameRoundResult = Prime\gameRound();
         }
 
         if (!$arGameRoundResult['correct']) {

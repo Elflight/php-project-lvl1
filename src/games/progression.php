@@ -5,7 +5,7 @@ namespace Brain\Even\Games\Progression;
 use function cli\line;
 use function cli\prompt;
 
-function progressionGameRound()
+function gameRound()
 {
     $progressionLength = 10;
 
