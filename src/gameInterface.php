@@ -25,7 +25,8 @@ function run($gameName)
 
     $noErrors = true;
     for ($i = 1; $i <= 3; $i++) {
-        //вот с этой частью у меня проблема, не могу подставить в вызов нэймспейс из переменной (ключ массива $arRules), пока сделал костыльно
+        //вот с этой частью у меня проблема, не могу подставить в вызов нэймспейс из переменной (ключ массива $arRules)
+        //пока сделал костыльно
         // $arGameRoundResult = call_user_func($gameName.'\gameRound');
         if ($gameName == 'Calculator') {
             $arGameRoundResult = Calculator\gameRound();
