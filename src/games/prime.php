@@ -2,8 +2,7 @@
 
 namespace Brain\Even\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Games\gameCli\getAnswer;
 
 function gameRound()
 {
@@ -13,19 +12,9 @@ function gameRound()
 
     $result = isPrime($number) ? 'yes' : 'no';
 
-    line("Question: {$number}");
-    $answer = prompt('Your answer');
+    $answer = getAnswer("Question: {$number}");
 
-    $arResult['solution'] = $result;
-    $arResult['answer'] = $answer;
-    
-    if ($answer != $result) {
-        $arResult['correct'] = false;
-    } else {
-        $arResult['correct'] = true;
-    }
-
-    return $arResult;
+    return ["solution" => $result, "answer" => $answer];
 }
 
 function isPrime($number)

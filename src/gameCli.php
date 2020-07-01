@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\MyCli;
+namespace Brain\Games\gameCli;
 
 use function cli\line;
 use function cli\prompt;
@@ -35,4 +35,12 @@ function getName()
     line();
 
     return $name;
+}
+
+function getAnswer($question)
+{
+    line($question);
+    $answer = prompt('Your answer');
+
+    return $answer;
 }

@@ -2,32 +2,20 @@
 
 namespace Brain\Even\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Games\gameCli\getAnswer;
 
 function gameRound()
 {
-    $min_number = 1;
-    $max_number = 100;
+    $minNumber = 1;
+    $maxNumber = 100;
 
-    $number1 = rand($min_number, $max_number);
-    $number2 = rand($min_number, $max_number);
+    $number1 = rand($minNumber, $maxNumber);
+    $number2 = rand($minNumber, $maxNumber);
     $result = findGcd($number1, $number2);
 
-    
-    line("Question: {$number1} {$number2}");
-    $answer = prompt('Your answer');
+    $answer = getAnswer("Question: {$number1} {$number2}");
 
-    $arResult['solution'] = $result;
-    $arResult['answer'] = $answer;
-    
-    if ($answer != $result) {
-        $arResult['correct'] = false;
-    } else {
-        $arResult['correct'] = true;
-    }
-
-    return $arResult;
+    return ["solution" => $result, "answer" => $answer];
 }
 
 function findGcd($a, $b)

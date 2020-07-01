@@ -2,8 +2,7 @@
 
 namespace Brain\Even\Games\Progression;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Games\gameCli\getAnswer;
 
 function gameRound()
 {
@@ -28,28 +27,17 @@ function gameRound()
 
     $strProgression = implode(' ', $arProgression);
 
-    line("Question: {$strProgression}");
-    $answer = prompt('Your answer');
+    $answer = getAnswer("Question: {$strProgression}");
 
-    $arResult['solution'] = $hiddenItem;
-    $arResult['answer'] = $answer;
-    
-    if ($answer != $hiddenItem) {
-        $arResult['correct'] = false;
-    } else {
-        $arResult['correct'] = true;
-    }
-
-    return $arResult;
+    return ["solution" => $hiddenItem, "answer" => $answer];
 }
 
 function generateProgression($startNumber, $step, $progressionLength)
 {
-    $arProgression = [$startNumber];
-    $lastItem = $startNumber;
-    for ($i = 0; $i < $progressionLength - 1; $i++) {
-        $lastItem = $lastItem + $step;
-        $arProgression[] = $lastItem;
+    $progressionItem = $startNumber;
+    for ($i = 0; $i < $progressionLength; $i++) {
+        $arProgression[] = $progressionItem;
+        $progressionItem = $progressionItem + $step;
     }
 
     return $arProgression;

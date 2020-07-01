@@ -2,29 +2,17 @@
 
 namespace Brain\Even\Games\Even;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Games\gameCli\getAnswer;
 
 function gameRound()
 {
-    $min_number = 1;
-    $max_number = 100;
+    $minNumber = 1;
+    $maxNumber = 100;
 
-    $number = rand($min_number, $max_number);
+    $number = rand($minNumber, $maxNumber);
     $result = $number % 2 === 0 ? 'yes' : 'no';
 
-    
-    line("Question: {$number}");
-    $answer = prompt('Your answer');
+    $answer = getAnswer("Question: {$number}");
 
-    $arResult['solution'] = $result;
-    $arResult['answer'] = $answer;
-    
-    if ($answer != $result) {
-        $arResult['correct'] = false;
-    } else {
-        $arResult['correct'] = true;
-    }
-
-    return $arResult;
+    return ["solution" => $result, "answer" => $answer];
 }

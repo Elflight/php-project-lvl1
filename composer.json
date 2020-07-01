@@ -18,7 +18,8 @@
     },
     "autoload": {
     	"files": [
-    	    "src/MyCli.php",
+    	    "loader.php",
+            "src/gameCli.php",
             "src/gameInterface.php",
             "src/games/calculator.php",
             "src/games/even.php",

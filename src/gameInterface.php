@@ -8,7 +8,7 @@ use Brain\Even\Games\Gcd;
 use Brain\Even\Games\Progression;
 use Brain\Even\Games\Prime;
 
-use function Brain\Games\MyCli\{showHello, getName, showFinish, showSuccess, showError};
+use function Brain\Games\gameCli\{showHello, getName, showFinish, showSuccess, showError};
 
 function run($gameName)
 {
@@ -25,22 +25,9 @@ function run($gameName)
 
     $noErrors = true;
     for ($i = 1; $i <= 3; $i++) {
-        //вот с этой частью у меня проблема, не могу подставить в вызов нэймспейс из переменной (ключ массива $arRules)
-        //пока сделал костыльно
-        // $arGameRoundResult = call_user_func($gameName.'\gameRound');
-        if ($gameName == 'Calculator') {
-            $arGameRoundResult = Calculator\gameRound();
-        } elseif ($gameName == 'Even') {
-            $arGameRoundResult = Even\gameRound();
-        } elseif ($gameName == 'Gcd') {
-            $arGameRoundResult = Gcd\gameRound();
-        } elseif ($gameName == 'Progression') {
-            $arGameRoundResult = Progression\gameRound();
-        } elseif ($gameName == 'Prime') {
-            $arGameRoundResult = Prime\gameRound();
-        }
+        $arGameRoundResult = call_user_func('Brain\Even\Games\\' . $gameName . '\gameRound');
 
-        if (!$arGameRoundResult['correct']) {
+        if ($arGameRoundResult['answer'] != $arGameRoundResult['solution']) {
             showError($arGameRoundResult['answer'], $arGameRoundResult['solution'], $name);
             $noErrors = false;
             break;
