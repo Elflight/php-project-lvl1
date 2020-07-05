@@ -1,10 +1,22 @@
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
 ![PHP CI](https://github.com/Elflight/php-project-lvl1/workflows/PHP%20CI/badge.svg)
 
+This repository is created as educational project in Hexlet course (https://ru.hexlet.io/professions/php). Project contains five simple math games.
+
 ## Setup
 
 ```sh
 $ composer global require elflight/php-project-lvl1
+```
+
+## Running
+
+```sh
+$ brain-calc
+$ brain-even
+$ brain-gcd
+$ brain-prime
+$ brain-progression
 ```
 
 ## Demonstration
