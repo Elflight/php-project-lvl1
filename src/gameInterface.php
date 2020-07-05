@@ -2,33 +2,29 @@
 
 namespace Brain\Game\GameInterface;
 
-use Brain\Even\Games\Calculator;
-use Brain\Even\Games\Even;
-use Brain\Even\Games\Gcd;
-use Brain\Even\Games\Progression;
-use Brain\Even\Games\Prime;
+use Brain\Games\Calculator;
+use Brain\Games\Even;
+use Brain\Games\Gcd;
+use Brain\Games\Progression;
+use Brain\Games\Prime;
 
 use function Brain\Games\gameCli\{showHello, getName, showFinish, showSuccess, showError};
 
 function run($gameName)
 {
-    $arRules = [
-        'Even' => 'Answer "yes" if the number is even, otherwise answer "no".',
-        'Calculator' => 'What is the result of the expression?',
-        'Gcd' => 'Find the greatest common divisor of given numbers.',
-        'Progression' => 'What number is missing in the progression?',
-        'Prime' => 'Answer "yes" if given number is prime. Otherwise answer "no".'
-    ];
+    define("ROUNDSCOUNT", 3);
 
-    showHello($arRules[$gameName]);
-    $name = getName();
+    $rules = call_user_func('Brain\Games\\' . $gameName . '\getRules');
+    showHello($rules);
+
+    $userName = getName();
 
     $noErrors = true;
-    for ($i = 1; $i <= 3; $i++) {
-        $arGameRoundResult = call_user_func('Brain\Even\Games\\' . $gameName . '\gameRound');
+    for ($i = 0; $i < ROUNDSCOUNT; $i++) {
+        $arGameRoundResult = call_user_func('Brain\Games\\' . $gameName . '\gameRound');
 
         if ($arGameRoundResult['answer'] != $arGameRoundResult['solution']) {
-            showError($arGameRoundResult['answer'], $arGameRoundResult['solution'], $name);
+            showError($arGameRoundResult['answer'], $arGameRoundResult['solution'], $userName);
             $noErrors = false;
             break;
         } else {
@@ -37,6 +33,6 @@ function run($gameName)
     }
 
     if ($noErrors) {
-        showFinish($name);
+        showFinish($userName);
     }
 }

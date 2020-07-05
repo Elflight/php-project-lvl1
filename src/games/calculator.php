@@ -1,8 +1,13 @@
 <?php
 
-namespace Brain\Even\Games\Calculator;
+namespace Brain\Games\Calculator;
 
 use function Brain\Games\gameCli\getAnswer;
+
+function getRules()
+{
+    return 'What is the result of the expression?';
+}
 
 function gameRound()
 {

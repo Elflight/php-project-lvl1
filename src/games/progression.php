@@ -1,8 +1,14 @@
 <?php
 
-namespace Brain\Even\Games\Progression;
+namespace Brain\Games\Progression;
 
 use function Brain\Games\gameCli\getAnswer;
+
+function getRules()
+{
+    return 'What number is missing in the progression?';
+}
+
 
 function gameRound()
 {

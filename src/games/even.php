@@ -1,8 +1,13 @@
 <?php
 
-namespace Brain\Even\Games\Even;
+namespace Brain\Games\Even;
 
 use function Brain\Games\gameCli\getAnswer;
+
+function getRules()
+{
+    return 'Answer "yes" if the number is even, otherwise answer "no".';
+}
 
 function gameRound()
 {

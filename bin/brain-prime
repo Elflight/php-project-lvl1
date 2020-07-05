@@ -1,5 +1,5 @@
 #!/usr/bin/env php
 <?php
-require_once __DIR__ . '/../loader.php';
+require_once __DIR__ . '/loader.php';
 
 Brain\Game\GameInterface\run('Prime');

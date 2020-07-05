@@ -1,8 +1,13 @@
 <?php
 
-namespace Brain\Even\Games\Gcd;
+namespace Brain\Games\Gcd;
 
 use function Brain\Games\gameCli\getAnswer;
+
+function getRules()
+{
+    return 'Find the greatest common divisor of given numbers.';
+}
 
 function gameRound()
 {
