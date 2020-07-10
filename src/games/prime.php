@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Games\gameCli\getAnswer;
+use function Brain\Game\GameInterface\getAnswer;
 
 function getRules()
 {

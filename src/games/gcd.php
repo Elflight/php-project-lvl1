@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Gcd;
 
-use function Brain\Games\gameCli\getAnswer;
+use function Brain\Game\GameInterface\getAnswer;
 
 function getRules()
 {

@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Even;
 
-use function Brain\Games\gameCli\getAnswer;
+use function Brain\Game\GameInterface\getAnswer;
 
 function getRules()
 {
