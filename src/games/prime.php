@@ -2,14 +2,15 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Game\GameInterface\getAnswer;
-
-function getRules()
+function run()
 {
-    return 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    \Brain\Game\GameFlow\runGame(
+        'Answer "yes" if given number is prime. Otherwise answer "no".',
+        fn() => generateRound()
+    );
 }
 
-function gameRound()
+function generateRound()
 {
     $minNumber = 2;
     $maxNumber = 1000;
@@ -17,14 +18,12 @@ function gameRound()
 
     $result = isPrime($number) ? 'yes' : 'no';
 
-    $answer = getAnswer("Question: {$number}");
-
-    return ["solution" => $result, "answer" => $answer];
+    return ["solution" => $result, "question" => $number];
 }
 
 function isPrime($number)
 {
-    if ($number == 1) {
+    if ($number < 2) {
         return false;
     }
 

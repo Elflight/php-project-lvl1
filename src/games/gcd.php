@@ -2,14 +2,15 @@
 
 namespace Brain\Games\Gcd;
 
-use function Brain\Game\GameInterface\getAnswer;
-
-function getRules()
+function run()
 {
-    return 'Find the greatest common divisor of given numbers.';
+    \Brain\Game\GameFlow\runGame(
+        'Find the greatest common divisor of given numbers.',
+        fn() => generateRound()
+    );
 }
 
-function gameRound()
+function generateRound()
 {
     $minNumber = 1;
     $maxNumber = 100;
@@ -18,9 +19,7 @@ function gameRound()
     $number2 = rand($minNumber, $maxNumber);
     $result = findGcd($number1, $number2);
 
-    $answer = getAnswer("Question: {$number1} {$number2}");
-
-    return ["solution" => $result, "answer" => $answer];
+    return ["solution" => $result, "question" => "{$number1} {$number2}"];
 }
 
 function findGcd($a, $b)

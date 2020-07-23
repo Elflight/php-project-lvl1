@@ -2,14 +2,15 @@
 
 namespace Brain\Games\Calculator;
 
-use function Brain\Game\GameInterface\getAnswer;
-
-function getRules()
+function run()
 {
-    return 'What is the result of the expression?';
+    \Brain\Game\GameFlow\runGame(
+        'What is the result of the expression?',
+        fn() => generateRound()
+    );
 }
 
-function gameRound()
+function generateRound()
 {
     $minNumber = 1;
     $maxNumber = 100;
@@ -35,7 +36,5 @@ function gameRound()
             break;
     }
     
-    $answer = getAnswer("Question: {$number1} {$action} {$number2}");
-
-    return ["solution" => $result, "answer" => $answer];
+    return ["solution" => $result, "question" => "{$number1} {$action} {$number2}"];
 }

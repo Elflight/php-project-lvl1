@@ -2,4 +2,4 @@
 <?php
 require_once __DIR__ . '/loader.php';
 
-Brain\Game\GameInterface\run('Gcd');
+Brain\Games\Gcd\run();

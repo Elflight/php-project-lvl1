@@ -19,7 +19,7 @@
     "autoload": {
     	"files": [
     	    "bin/loader.php",
-            "src/gameInterface.php",
+            "src/gameFlow.php",
             "src/games/calculator.php",
             "src/games/even.php",
             "src/games/gcd.php",

@@ -2,15 +2,15 @@
 
 namespace Brain\Games\Progression;
 
-use function Brain\Game\GameInterface\getAnswer;
-
-function getRules()
+function run()
 {
-    return 'What number is missing in the progression?';
+    \Brain\Game\GameFlow\runGame(
+        'What number is missing in the progression?',
+        fn() => generateRound()
+    );
 }
 
-
-function gameRound()
+function generateRound()
 {
     $progressionLength = 10;
 
@@ -31,19 +31,13 @@ function gameRound()
     $hiddenItem = $arProgression[$hiddenItemIndex];
     $arProgression[$hiddenItemIndex] = '..';
 
-    $strProgression = implode(' ', $arProgression);
-
-    $answer = getAnswer("Question: {$strProgression}");
-
-    return ["solution" => $hiddenItem, "answer" => $answer];
+    return ["solution" => $hiddenItem, "question" => implode(' ', $arProgression)];
 }
 
 function generateProgression($startNumber, $step, $progressionLength)
 {
-    $progressionItem = $startNumber;
-    for ($i = 0; $i < $progressionLength; $i++) {
-        $arProgression[] = $progressionItem;
-        $progressionItem = $progressionItem + $step;
+    for ($i = 1; $i < $progressionLength + 1; $i++) {
+        $arProgression[] = $startNumber + ($i - 1) * $step;
     }
 
     return $arProgression;

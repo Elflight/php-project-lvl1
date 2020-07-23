@@ -2,14 +2,15 @@
 
 namespace Brain\Games\Even;
 
-use function Brain\Game\GameInterface\getAnswer;
-
-function getRules()
+function run()
 {
-    return 'Answer "yes" if the number is even, otherwise answer "no".';
+    \Brain\Game\GameFlow\runGame(
+        'Answer "yes" if the number is even, otherwise answer "no".',
+        fn() => generateRound()
+    );
 }
 
-function gameRound()
+function generateRound()
 {
     $minNumber = 1;
     $maxNumber = 100;
@@ -17,7 +18,5 @@ function gameRound()
     $number = rand($minNumber, $maxNumber);
     $result = $number % 2 === 0 ? 'yes' : 'no';
 
-    $answer = getAnswer("Question: {$number}");
-
-    return ["solution" => $result, "answer" => $answer];
+    return ["solution" => $result, "question" => $number];
 }
