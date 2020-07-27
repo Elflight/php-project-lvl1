@@ -36,8 +36,8 @@ function generateRound()
 
 function generateProgression($startNumber, $step, $progressionLength)
 {
-    for ($i = 1; $i < $progressionLength + 1; $i++) {
-        $arProgression[] = $startNumber + ($i - 1) * $step;
+    for ($i = 0; $i < $progressionLength; $i++) {
+        $arProgression[] = $startNumber + $i * $step;
     }
 
     return $arProgression;
