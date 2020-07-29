@@ -22,19 +22,21 @@ function generateRound()
 
     //вариант c eval забракован, хотя в данном контексте eval абсолютно безопасен,
     //поскольку я полностью контролирую передаваемые параметры
-    // $result = eval("return {$number1} {$action} {$number2};");
+    // $solution = eval("return {$number1} {$action} {$number2};");
 
     switch ($action) {
         case '+':
-            $result = $number1 + $number2;
+            $solution = $number1 + $number2;
             break;
         case '-':
-            $result = $number1 - $number2;
+            $solution = $number1 - $number2;
             break;
         case '*':
-            $result = $number1 * $number2;
+            $solution = $number1 * $number2;
             break;
     }
+
+    $question = "{$number1} {$action} {$number2}";
     
-    return ["solution" => $result, "question" => "{$number1} {$action} {$number2}"];
+    return [$question, $solution];
 }

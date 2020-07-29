@@ -16,7 +16,9 @@ function generateRound()
     $maxNumber = 100;
 
     $number = rand($minNumber, $maxNumber);
-    $result = $number % 2 === 0 ? 'yes' : 'no';
+    $solution = $number % 2 === 0 ? 'yes' : 'no';
 
-    return ["solution" => $result, "question" => $number];
+    $question = $number;
+
+    return [$question, $solution];
 }

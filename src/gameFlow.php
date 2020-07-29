@@ -21,7 +21,7 @@ function runGame($rules, $generateRound)
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $arGameRound = $generateRound();
 
-        ['solution' => $solution, 'question' => $question] = $arGameRound;
+        [$question, $solution] = $arGameRound;
 
         line("Question: " . $question);
         $answer = prompt('Your answer');

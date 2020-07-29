@@ -28,10 +28,12 @@ function generateRound()
 
     $arProgression = generateProgression($startNumber, $step, $progressionLength);
 
-    $hiddenItem = $arProgression[$hiddenItemIndex];
+    $solution = $arProgression[$hiddenItemIndex];
     $arProgression[$hiddenItemIndex] = '..';
 
-    return ["solution" => $hiddenItem, "question" => implode(' ', $arProgression)];
+    $question = implode(' ', $arProgression);
+
+    return [$question, $solution];
 }
 
 function generateProgression($startNumber, $step, $progressionLength)

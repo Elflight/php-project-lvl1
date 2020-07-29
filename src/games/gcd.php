@@ -17,9 +17,11 @@ function generateRound()
 
     $number1 = rand($minNumber, $maxNumber);
     $number2 = rand($minNumber, $maxNumber);
-    $result = findGcd($number1, $number2);
+    $solution = findGcd($number1, $number2);
 
-    return ["solution" => $result, "question" => "{$number1} {$number2}"];
+    $question = "{$number1} {$number2}";
+
+    return [$question, $solution];
 }
 
 function findGcd($a, $b)

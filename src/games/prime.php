@@ -16,9 +16,11 @@ function generateRound()
     $maxNumber = 1000;
     $number = rand($minNumber, $maxNumber);
 
-    $result = isPrime($number) ? 'yes' : 'no';
+    $solution = isPrime($number) ? 'yes' : 'no';
 
-    return ["solution" => $result, "question" => $number];
+    $question = $number;
+
+    return [$question, $solution];
 }
 
 function isPrime($number)
