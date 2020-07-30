@@ -2,9 +2,11 @@
 
 namespace Brain\Games\Prime;
 
+use Brain\Game\GameFlow;
+
 function run()
 {
-    \Brain\Game\GameFlow\runGame(
+    GameFlow\runGame(
         'Answer "yes" if given number is prime. Otherwise answer "no".',
         fn() => generateRound()
     );

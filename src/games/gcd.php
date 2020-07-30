@@ -2,9 +2,11 @@
 
 namespace Brain\Games\Gcd;
 
+use Brain\Game\GameFlow;
+
 function run()
 {
-    \Brain\Game\GameFlow\runGame(
+    GameFlow\runGame(
         'Find the greatest common divisor of given numbers.',
         fn() => generateRound()
     );

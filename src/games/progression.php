@@ -2,9 +2,11 @@
 
 namespace Brain\Games\Progression;
 
+use Brain\Game\GameFlow;
+
 function run()
 {
-    \Brain\Game\GameFlow\runGame(
+    GameFlow\runGame(
         'What number is missing in the progression?',
         fn() => generateRound()
     );

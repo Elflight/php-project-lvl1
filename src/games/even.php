@@ -2,9 +2,11 @@
 
 namespace Brain\Games\Even;
 
+use Brain\Game\GameFlow;
+
 function run()
 {
-    \Brain\Game\GameFlow\runGame(
+    GameFlow\runGame(
         'Answer "yes" if the number is even, otherwise answer "no".',
         fn() => generateRound()
     );

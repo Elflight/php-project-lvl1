@@ -2,9 +2,11 @@
 
 namespace Brain\Games\Calculator;
 
+use Brain\Game\GameFlow;
+
 function run()
 {
-    \Brain\Game\GameFlow\runGame(
+    GameFlow\runGame(
         'What is the result of the expression?',
         fn() => generateRound()
     );
