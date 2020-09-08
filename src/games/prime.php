@@ -4,26 +4,27 @@ namespace Brain\Games\Prime;
 
 use Brain\Game\GameFlow;
 
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 function run()
 {
+    $generateRound = function () {
+        $minNumber = 2;
+        $maxNumber = 1000;
+        $question = rand($minNumber, $maxNumber);
+
+        $solution = isPrime($question) ? 'yes' : 'no';
+
+        return [$question, $solution];
+    };
+
     GameFlow\runGame(
-        'Answer "yes" if given number is prime. Otherwise answer "no".',
-        fn() => generateRound()
+        DESCRIPTION,
+        $generateRound
     );
 }
 
-function generateRound()
-{
-    $minNumber = 2;
-    $maxNumber = 1000;
-    $number = rand($minNumber, $maxNumber);
 
-    $solution = isPrime($number) ? 'yes' : 'no';
-
-    $question = $number;
-
-    return [$question, $solution];
-}
 
 function isPrime($number)
 {
